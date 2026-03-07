@@ -1,26 +1,22 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@font-face{
+    font-family: Inter;
+    src: url(/Inter-VariableFont_opsz,wght.ttf);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@font-face{
+    font-family: Mont;
+    src: url(/Montserrat-VariableFont_wght.ttf);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html, body p{
+    font-family: Inter;
+    color: #4A4A4A;
 }
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+html, body li{
+    font-family: Inter;
+}
+html, body h1, h2, h3, h4{
+    font-family: Mont;
 }
