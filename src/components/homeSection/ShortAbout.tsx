@@ -9,7 +9,7 @@ import aboutImg from '@/public/about/about.webp';
 
 const ShortAbout = () => {
     return (
-        <section className="py-16 px-4 md:px-20 bg-white">
+        <section className="md:py-16 py-5 px-4 md:px-20 bg-white">
             <div className="max-w-7xl mx-auto flex flex-col md:flex-row-reverse items-center gap-12">
 
                 {/* Right Side: Image with Fade-in */}

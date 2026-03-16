@@ -21,7 +21,7 @@ const destinations = [
 
 const DestinationCard = () => {
   return (
-    <section className="py-16 px-4 bg-white">
+    <section className="md:py-16 pt-10 px-4 bg-white">
       <div className="max-w-7xl mx-auto">
         
         {/* Header */}
