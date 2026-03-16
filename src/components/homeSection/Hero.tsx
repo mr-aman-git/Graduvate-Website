@@ -22,7 +22,7 @@ const Hero = () => {
     }, []);
 
     return (
-        <section className="relative h-180 w-full overflow-hidden bg-gray-900">
+        <section className="relative md:h-180 h-50 w-full overflow-hidden bg-gray-900">
             <AnimatePresence mode="wait">
                 <motion.div
                     key={index}

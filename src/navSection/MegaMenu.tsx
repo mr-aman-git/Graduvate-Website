@@ -12,12 +12,12 @@ const courses = [
     {
         title: "MSc (PGCert PGDip) Data Analytics",
         university: "University of Brighton",
-        logo: "https://strapi-assets.edvoy.com/live/images/institutions/university-of-exeter-logo.svg?w=96&q=80",
+        logo: "https://strapi-assets.edvoy.com/live/images/institutions/university-of-brighton-logo.svg?w=96&q=80",
     },
     {
         title: "MSc Advanced Computer Science",
         university: "University of Liverpool",
-        logo: "https://strapi-assets.edvoy.com/live/images/institutions/university-of-exeter-logo.svg?w=96&q=80",
+        logo: "https://strapi-assets.edvoy.com/live/images/institutions/university-of-liverpool-logo.svg?w=96&q=80",
     },
     {
         title: "MSc Health Research Methods",
@@ -27,7 +27,7 @@ const courses = [
     {
         title: "MSc/PGDip/PGCert Computing Science",
         university: "University of Glasgow",
-        logo: "https://strapi-assets.edvoy.com/live/images/institutions/university-of-exeter-logo.svg?w=96&q=80",
+        logo: "https://strapi-assets.edvoy.com/live/images/institutions/university-of-glasgow-logo.svg?w=96&q=80",
     },
 ];
 
@@ -46,12 +46,10 @@ const subjects = [
 
 const countries = [
     { name: "United Kingdom", flag: "https://img.freepik.com/free-vector/illustration-uk-flag_53876-18166.jpg?semt=ais_rp_progressive&w=740&q=80" },
-    { name: "Ireland", flag: "https://img.freepik.com/free-vector/illustration-uk-flag_53876-18166.jpg?semt=ais_rp_progressive&w=740&q=80" },
-    { name: "United States", flag: "https://img.freepik.com/free-vector/illustration-uk-flag_53876-18166.jpg?semt=ais_rp_progressive&w=740&q=80" },
-    { name: "Canada", flag: "https://img.freepik.com/free-vector/illustration-uk-flag_53876-18166.jpg?semt=ais_rp_progressive&w=740&q=80" },
-    { name: "New Zealand", flag: "https://img.freepik.com/free-vector/illustration-uk-flag_53876-18166.jpg?semt=ais_rp_progressive&w=740&q=80" },
-    { name: "Australia", flag: "https://img.freepik.com/free-vector/illustration-uk-flag_53876-18166.jpg?semt=ais_rp_progressive&w=740&q=80" },
-    { name: "Switzerland", flag: "https://img.freepik.com/free-vector/illustration-uk-flag_53876-18166.jpg?semt=ais_rp_progressive&w=740&q=80" },
+    { name: "Germany", flag: "https://img.freepik.com/free-vector/illustration-german-flag_53876-27101.jpg?semt=ais_rp_50_assets&w=740&q=80" },
+    { name: "United States", flag: "https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" },
+    { name: "Canada", flag: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Canada_%28Pantone%29.svg" },
+    { name: "New Zealand", flag: "https://upload.wikimedia.org/wikipedia/commons/3/3e/Flag_of_New_Zealand.svg" },
 ];
 // ... (keep your courses, subjects, and countries arrays as they were)
 

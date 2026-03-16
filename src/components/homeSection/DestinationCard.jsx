@@ -89,7 +89,7 @@ const DestinationCard = () => {
 
         {/* Show All Button (Brand Styled) */}
         <div className="flex justify-center mt-12">
-          <Link href="/destinations">
+          <Link href="/">
             <button className="group flex items-center gap-3 bg-blue-900 text-white px-10 py-3.5 rounded-full font-bold hover:bg-[#ee1d23] transition-all duration-300 shadow-xl hover:shadow-red-200">
               Show all 
               <span className="transition-transform group-hover:translate-x-2">→</span>

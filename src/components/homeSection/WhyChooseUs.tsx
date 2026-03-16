@@ -103,9 +103,12 @@ const WhyChooseUs = () => {
                         <p className="text-blue-100 mb-8 max-w-2xl mx-auto">
                             <span className="text-blue-100">Join thousands of students who have already achieved their dreams with Graduvate.</span>
                         </p>
-                        <button className="bg-white text-blue-900 px-10 py-4 rounded-full font-bold hover:bg-[#ee1d23] hover:text-white transition-all transform hover:scale-105 shadow-lg">
-                            Get Free Counseling
-                        </button>
+
+                        <a href="tel:+918608608668">
+                            <button className="bg-white text-blue-900 px-10 py-4 rounded-full font-bold hover:bg-[#ee1d23] hover:text-white transition-all transform hover:scale-105 shadow-lg">
+                                Get Free Counseling
+                            </button>
+                        </a>
                     </div>
                     {/* Decorative Circles */}
                     <div className="absolute -top-12.5 -right-12.5 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>

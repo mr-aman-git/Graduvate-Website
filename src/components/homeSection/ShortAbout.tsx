@@ -47,7 +47,7 @@ const ShortAbout = () => {
                         Indian students to study abroad for the past 15 years.
                     </p>
 
-                    <Link href="/about">
+                    <Link href="/">
                         <button className="bg-[#1e3a8a] text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:bg-red-600 hover:shadow-lg transform hover:-translate-y-1">
                             Read More
                         </button>
