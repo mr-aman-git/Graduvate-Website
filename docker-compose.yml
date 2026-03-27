@@ -1,0 +1,12 @@
+version: '3.8'
+name: graduvate
+services:
+  crm-frontend-svc:
+    build: .
+    container_name: graduvate-frontend
+    image: graduvate-frontend-image
+    ports:
+      - "3003:3000"  #  Aapka frontend jis port pe chalta ho
+    env_file:
+      - .env
+    restart: always
