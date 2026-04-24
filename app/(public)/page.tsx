@@ -1,10 +1,10 @@
 import React from "react";
 import type { Metadata } from "next";
 
-import Hero from "@/src/components/homeSection/Hero";
-import ShortAbout from "@/src/components/homeSection/ShortAbout";
-import DestinationCard from "@/src/components/homeSection/DestinationCard";
-import WhyChooseUs from "@/src/components/homeSection/WhyChooseUs";
+import Section_1 from "@/src/components/homeSection/Section_1";
+import Section_2 from "@/src/components/homeSection/Section_2";
+import Section_3 from "@/src/components/homeSection/Section_3";
+import Section_4 from "@/src/components/homeSection/Section_4";
 
 export const metadata: Metadata = {
   title: "Graduvate Education | Best Abroad Consultancy",
@@ -31,10 +31,10 @@ export const metadata: Metadata = {
 const Page = () => {
   return (
     <>
-      <Hero />
-      <DestinationCard />
-      <ShortAbout />
-      <WhyChooseUs />
+      <Section_1 />
+      <Section_2 />
+      <Section_3 />
+      <Section_4 />
     </>
   );
 };

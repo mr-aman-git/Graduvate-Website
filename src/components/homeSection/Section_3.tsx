@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 // Image path adjust karein apne folder structure ke hisaab se
 import aboutImg from '@/public/about/about.webp';
 
-const ShortAbout = () => {
+const Section_3 = () => {
     return (
         <section className="md:py-16 py-5 px-4 md:px-20 bg-white">
             <div className="max-w-7xl mx-auto flex flex-col md:flex-row-reverse items-center gap-12">
@@ -36,7 +36,7 @@ const ShortAbout = () => {
                     className="w-full md:w-1/2 space-y-6"
                 >
                     <div className="relative inline-block">
-                        <h2 className="md:text-4xl text-3xl font-bold text-[#1a2e7e]">Who We Are?</h2>
+                        <h2 className="md:text-4xl text-3xl font-bold text-gray-900">Who We Are?</h2>
                         <div className="w-12 h-1 bg-red-600 mt-1"></div>
                     </div>
 
@@ -59,4 +59,4 @@ const ShortAbout = () => {
     );
 };
 
-export default ShortAbout;
+export default Section_3;

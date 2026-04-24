@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ShieldCheck, GraduationCap, Globe, Headphones, Zap, Star } from 'lucide-react'; // Install lucide-react
+import Section_1 from './Section_1';
 
 const reasons = [
     {
@@ -43,7 +44,7 @@ const reasons = [
     }
 ];
 
-const WhyChooseUs = () => {
+const Section_4 = () => {
     return (
         <section className="py-20 px-4 bg-[#fcfdfe]">
             <div className="max-w-7xl mx-auto">
@@ -61,7 +62,7 @@ const WhyChooseUs = () => {
                         initial={{ y: 20, opacity: 0 }}
                         whileInView={{ y: 0, opacity: 1 }}
                         viewport={{ once: true }}
-                        className="text-3xl md:text-4xl font-extrabold text-blue-900 mt-3"
+                        className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-3"
                     >
                         We make your study abroad <br className="hidden md:block" /> journey effortless
                     </motion.h2>
@@ -93,7 +94,7 @@ const WhyChooseUs = () => {
                 </div>
 
                 {/* Bottom Banner Like Edvoy */}
-                <motion.div
+                {/* <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     className="mt-20 bg-blue-900 rounded-[2.5rem] p-8 md:p-12 text-center text-white relative overflow-hidden shadow-2xl shadow-blue-200"
@@ -110,14 +111,14 @@ const WhyChooseUs = () => {
                             </button>
                         </a>
                     </div>
-                    {/* Decorative Circles */}
+                    
                     <div className="absolute -top-12.5 -right-12.5 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
                     <div className="absolute -bottom-12.5 -left-12.5 w-64 h-64 bg-red-500/20 rounded-full blur-3xl"></div>
-                </motion.div>
+                </motion.div> */}
 
             </div>
         </section>
     );
 };
 
-export default WhyChooseUs;
+export default Section_4;
