@@ -3,7 +3,7 @@ import axios from "axios";
 // 1. Admin ke liye alag instance
 const adminAxios = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,
-  timeout: 15000, // Thoda extra time kyunki image upload mein time lagta hai
+  timeout: 30000, // Thoda extra time kyunki image upload mein time lagta hai
   // headers: { "Content-Type": "application/json" },
 });
 
