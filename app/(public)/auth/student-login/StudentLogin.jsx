@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { toast } from "react-toastify";
 import ForgotPasswordModal from './ForgotPasswordModal'
-import { userLogin } from "../../../../routes/userApi.js";
+import { userLogin } from "../../../../src/routes/userApi.js";
 
 export default function StudentLogin() {
 

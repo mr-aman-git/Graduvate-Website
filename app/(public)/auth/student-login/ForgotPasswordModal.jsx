@@ -6,7 +6,7 @@ import { IoClose } from "react-icons/io5";
 import {
   forgotOtpPassword,
   otpVerifyAndChangePassword,
-} from "../../../../routes/userApi.js";
+} from "../../../../src/routes/userApi.js";
 import { toast } from "react-toastify";
 const ForgotPasswordModal = ({ isOpen, setIsOpen }) => {
   const [step, setStep] = useState(1);

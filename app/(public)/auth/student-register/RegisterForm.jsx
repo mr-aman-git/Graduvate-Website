@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
-import { userRegister, userOtpVerify } from "../../../../routes/userApi.js";
+import { userRegister, userOtpVerify } from "../../../../src/routes/userApi.js";
 
 export default function RegisterForm() {
   const router = useRouter();
