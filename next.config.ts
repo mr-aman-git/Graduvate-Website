@@ -18,6 +18,22 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'media.istockphoto.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'upload.wikimedia.org',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.magnific.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'img.magnific.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.britannica.com',
+      },
     ],
   },
 };

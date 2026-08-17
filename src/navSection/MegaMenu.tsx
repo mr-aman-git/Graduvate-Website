@@ -46,13 +46,33 @@ const subjects = [
 
 const countries = [
     { name: "United Kingdom", flag: "https://img.freepik.com/free-vector/illustration-uk-flag_53876-18166.jpg?semt=ais_rp_progressive&w=740&q=80" },
-    { name: "Germany", flag: "https://img.freepik.com/free-vector/illustration-german-flag_53876-27101.jpg?semt=ais_rp_50_assets&w=740&q=80" },
     { name: "United States", flag: "https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg" },
     { name: "Canada", flag: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Canada_%28Pantone%29.svg" },
+    { name: "Germany", flag: "https://img.freepik.com/free-vector/illustration-german-flag_53876-27101.jpg?semt=ais_rp_50_assets&w=740&q=80" },
     { name: "New Zealand", flag: "https://upload.wikimedia.org/wikipedia/commons/3/3e/Flag_of_New_Zealand.svg" },
+
+
+    { name: "Australia", flag: "https://img.magnific.com/premium-photo/flag-australia_406939-4447.jpg?semt=ais_test_b&w=740&q=80" },
+    { name: "Ireland", flag: "https://cdn.britannica.com/33/1733-050-04264811/FLAG-Ireland.jpg" },
+    { name: "Netherland", flag: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Flag_of_the_Netherlands.svg/330px-Flag_of_the_Netherlands.svg.png?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail" },
+    { name: "France", flag: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/960px-Flag_of_France.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail" },
+    { name: "Europe", flag: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Flag_of_Europe.svg/960px-Flag_of_Europe.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail" },
 ];
 // ... (keep your courses, subjects, and countries arrays as they were)
 
+
+const prGlobal = [
+    { name: "Canada", flag: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Canada_%28Pantone%29.svg" },
+    { name: "Australia", flag: "https://img.magnific.com/premium-photo/flag-australia_406939-4447.jpg?semt=ais_test_b&w=740&q=80" },
+    { name: "Europe", flag: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Flag_of_Europe.svg/960px-Flag_of_Europe.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail" },
+];
+
+const visaGlobal = [
+    { name: "United Kingdom", flag: "https://img.freepik.com/free-vector/illustration-uk-flag_53876-18166.jpg?semt=ais_rp_progressive&w=740&q=80" },
+    { name: "Canada", flag: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Canada_%28Pantone%29.svg" },
+    { name: "Australia", flag: "https://img.magnific.com/premium-photo/flag-australia_406939-4447.jpg?semt=ais_test_b&w=740&q=80" },
+    { name: "Europe", flag: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Flag_of_Europe.svg/960px-Flag_of_Europe.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail" },
+];
 export const CoursesMenu = () => {
     return (
         // Added pt-5 to bridge the gap between trigger and menu
@@ -116,6 +136,58 @@ export const CountriesMenu = () => {
                 <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Study Destinations</h3>
                 <div className="space-y-1">
                     {countries.map((country, i) => (
+                        <div key={i} className="flex items-center justify-between p-2 hover:bg-purple-50 rounded-xl cursor-pointer group transition-colors">
+                            <div className="flex items-center gap-3">
+                                <div className="relative w-8 h-5 overflow-hidden rounded-sm">
+                                    <Image src={country.flag} fill className="object-cover" alt={country.name} />
+                                </div>
+                                <p className="text-sm font-medium text-gray-700 group-hover:text-red-600">{country.name}</p>
+                            </div>
+                            <span className="text-gray-300 group-hover:text-red-600 opacity-0 group-hover:opacity-100 transition-all">
+                                <LuChevronRight />
+                            </span>
+
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export const CountriesPRGlobal = () => {
+    return (
+        <div className="absolute -left-10 top-full pt-1 w-72 z-50">
+            <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 p-6 animate-in fade-in zoom-in-95 duration-200">
+                <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">PR GLOBAL</h3>
+                <div className="space-y-1">
+                    {prGlobal.map((country, i) => (
+                        <div key={i} className="flex items-center justify-between p-2 hover:bg-purple-50 rounded-xl cursor-pointer group transition-colors">
+                            <div className="flex items-center gap-3">
+                                <div className="relative w-8 h-5 overflow-hidden rounded-sm">
+                                    <Image src={country.flag} fill className="object-cover" alt={country.name} />
+                                </div>
+                                <p className="text-sm font-medium text-gray-700 group-hover:text-red-600">{country.name}</p>
+                            </div>
+                            <span className="text-gray-300 group-hover:text-red-600 opacity-0 group-hover:opacity-100 transition-all">
+                                <LuChevronRight />
+                            </span>
+
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export const CountriesVisaGlobal = () => {
+    return (
+        <div className="absolute -left-10 top-full pt-1 w-72 z-50">
+            <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 p-6 animate-in fade-in zoom-in-95 duration-200">
+                <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">VISA GLOBAL</h3>
+                <div className="space-y-1">
+                    {visaGlobal.map((country, i) => (
                         <div key={i} className="flex items-center justify-between p-2 hover:bg-purple-50 rounded-xl cursor-pointer group transition-colors">
                             <div className="flex items-center gap-3">
                                 <div className="relative w-8 h-5 overflow-hidden rounded-sm">
