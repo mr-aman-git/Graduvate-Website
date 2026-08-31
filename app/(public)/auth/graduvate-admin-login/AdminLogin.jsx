@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { adminLogin } from "../../../../src/routes/adminApi.js";
+import API from "../../../../src/routes/axios.js";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 
@@ -30,25 +30,46 @@ const AdminLogin = () => {
 
     try {
       setLoading(true);
-
-      const loginPromise = adminLogin(formData);
+      // 1. Direct API instance call
+      const loginPromise = API.post("/auth/admin-login", formData);
 
       toast.promise(loginPromise, {
         pending: "Logging in...",
         success: "Login successful 🎉",
-        error: "Invalid email or password ❌",
+        error: {
+          render({ data }) {
+            // Backend error message extract karega
+            return (
+              data?.response?.data?.message || "Invalid email or password ❌"
+            );
+          },
+        },
       });
 
       const res = await loginPromise;
+      const responseData = res?.data;
 
-      // token save
-      localStorage.setItem("graduvateAdminToken", res.token);
+      // 2. Token extraction & localStorage save (matching interceptor)
+      const token = responseData?.token || responseData?.data?.token;
+
+      if (token) {
+        localStorage.setItem("token", token);
+        // Agar aapki custom key "graduvateAdminToken" bhi required hai toh dono save kar sakte hain
+        localStorage.setItem("graduvateAdminToken", token);
+
+        if (responseData?.user || responseData?.admin) {
+          localStorage.setItem(
+            "user",
+            JSON.stringify(responseData.user || responseData.admin),
+          );
+        }
+      }
 
       setTimeout(() => {
         router.push("/admin/dashboard");
       }, 800);
     } catch (err) {
-      console.log(err);
+      console.error("Login Error:", err);
     } finally {
       setLoading(false);
     }
@@ -71,9 +92,10 @@ const AdminLogin = () => {
             <input
               type="email"
               name="email"
-              placeholder="Email"
+              placeholder="admin@example.com"
               value={formData.email}
               onChange={handleChange}
+              required
               className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
             />
           </div>
@@ -86,9 +108,10 @@ const AdminLogin = () => {
             <input
               type="password"
               name="password"
-              placeholder="********"
+              placeholder="••••••••"
               value={formData.password}
               onChange={handleChange}
+              required
               className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
             />
           </div>
@@ -97,7 +120,7 @@ const AdminLogin = () => {
           <button
             type="submit"
             disabled={loading}
-            className="w-full cursor-pointer bg-blue-900 hover:bg-blue-700 text-white py-2 rounded-lg font-semibold transition"
+            className="w-full cursor-pointer bg-blue-900 hover:bg-blue-800 disabled:opacity-60 text-white py-2.5 rounded-lg font-semibold transition duration-200"
           >
             {loading ? "Please wait..." : "Login"}
           </button>

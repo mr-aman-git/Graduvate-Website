@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { LuChevronRight, LuX } from "react-icons/lu";
+import Link from "next/link";
 
 interface MenuProps {
     onClose?: () => void;
@@ -10,6 +11,7 @@ interface MenuProps {
 interface Country {
     name: string;
     flag: string;
+    link: string;
 }
 
 interface Course {
@@ -62,42 +64,52 @@ const subjects: string[] = [
 const countries: Country[] = [
     {
         name: "United Kingdom",
+        link:"/",
         flag: "https://img.freepik.com/free-vector/illustration-uk-flag_53876-18166.jpg?semt=ais_rp_progressive&w=740&q=80",
     },
     {
         name: "United States",
+        link:"/",
         flag: "https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg",
     },
     {
         name: "Canada",
+        link:"/",
         flag: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Canada_%28Pantone%29.svg",
     },
     {
         name: "Germany",
+        link:"/",
         flag: "https://img.freepik.com/free-vector/illustration-german-flag_53876-27101.jpg?semt=ais_rp_50_assets&w=740&q=80",
     },
     {
         name: "New Zealand",
+        link:"/",
         flag: "https://upload.wikimedia.org/wikipedia/commons/3/3e/Flag_of_New_Zealand.svg",
     },
     {
         name: "Australia",
+        link:"/",
         flag: "https://img.magnific.com/premium-photo/flag-australia_406939-4447.jpg?semt=ais_test_b&w=740&q=80",
     },
     {
         name: "Ireland",
+        link:"/",
         flag: "https://cdn.britannica.com/33/1733-050-04264811/FLAG-Ireland.jpg",
     },
     {
         name: "Netherland",
+        link:"/",
         flag: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Flag_of_the_Netherlands.svg/330px-Flag_of_the_Netherlands.svg.png",
     },
     {
         name: "France",
+        link:"/",
         flag: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/960px-Flag_of_France.svg.png",
     },
     {
         name: "Europe",
+        link:"/",
         flag: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Flag_of_Europe.svg/960px-Flag_of_Europe.svg.png",
     },
 ];
@@ -105,14 +117,17 @@ const countries: Country[] = [
 const prGlobal: Country[] = [
     {
         name: "Canada",
+        link:"/pr-global/canada",
         flag: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Canada_%28Pantone%29.svg",
     },
     {
         name: "Australia",
+        link:"/",
         flag: "https://img.magnific.com/premium-photo/flag-australia_406939-4447.jpg?semt=ais_test_b&w=740&q=80",
     },
     {
         name: "Europe",
+        link:"/",
         flag: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Flag_of_Europe.svg/960px-Flag_of_Europe.svg.png",
     },
 ];
@@ -120,18 +135,22 @@ const prGlobal: Country[] = [
 const visaGlobal: Country[] = [
     {
         name: "United Kingdom",
+        link:"/",
         flag: "https://img.freepik.com/free-vector/illustration-uk-flag_53876-18166.jpg?semt=ais_rp_progressive&w=740&q=80",
     },
     {
         name: "Canada",
+        link:"/",
         flag: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Canada_%28Pantone%29.svg",
     },
     {
         name: "Australia",
+        link:"/",
         flag: "https://img.magnific.com/premium-photo/flag-australia_406939-4447.jpg?semt=ais_test_b&w=740&q=80",
     },
     {
         name: "Europe",
+        link:"/",
         flag: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Flag_of_Europe.svg/960px-Flag_of_Europe.svg.png",
     },
 ];
@@ -183,14 +202,14 @@ export const CoursesMenu = ({
     return (
         <div
             className="
-                absolute left-1/2 top-full z-50 w-[700px]
+                absolute left-1/2 top-full z-50 w-175
                 -translate-x-1/2 pt-2
 
                 md:block
 
                 max-md:fixed
                 max-md:inset-0
-                max-md:h-[100dvh]
+                max-md:h-dvh
                 max-md:w-full
                 max-md:translate-x-0
                 max-md:pt-0
@@ -350,8 +369,9 @@ const CountryList = ({
     return (
         <div className="space-y-1">
             {items.map((country) => (
+                <Link href={country?.link} key={country.name}>
                 <div
-                    key={country.name}
+                    
                     className="
                         group
                         flex
@@ -394,6 +414,7 @@ const CountryList = ({
                         "
                     />
                 </div>
+                </Link>
             ))}
         </div>
     );

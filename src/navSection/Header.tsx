@@ -89,7 +89,7 @@ export default function Header() {
           HEADER
       ================================================= */}
 
-      <header className="fixed top-0 left-0 right-0 z-[100] border-b border-gray-100 bg-white/80 backdrop-blur-md">
+      <header className="fixed top-0 left-0 right-0 z-100 border-b border-gray-100 bg-white/80 backdrop-blur-md">
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6">
 
           {/* =================================================
@@ -108,7 +108,7 @@ export default function Header() {
                 height={60}
                 alt="Logo"
                 priority
-                className="h-auto w-[135px] sm:w-[150px] md:w-[170px]"
+                className="h-auto w-33.75 sm:w-37.5 md:w-42.5"
               />
             </Link>
           </div>
@@ -130,8 +130,8 @@ export default function Header() {
                 type="button"
                 aria-expanded={courseOpen}
                 className={`flex items-center gap-1 font-semibold transition-colors ${courseOpen
-                    ? "text-blue-900"
-                    : "text-gray-700 hover:text-blue-900"
+                  ? "text-blue-900"
+                  : "text-gray-700 hover:text-blue-900"
                   }`}
               >
                 Courses
@@ -157,8 +157,8 @@ export default function Header() {
                 type="button"
                 aria-expanded={countryOpen}
                 className={`flex items-center gap-1 font-semibold transition-colors ${countryOpen
-                    ? "text-blue-900"
-                    : "text-gray-700 hover:text-blue-900"
+                  ? "text-blue-900"
+                  : "text-gray-700 hover:text-blue-900"
                   }`}
               >
                 Study Global
@@ -184,8 +184,8 @@ export default function Header() {
                 type="button"
                 aria-expanded={prOpen}
                 className={`flex items-center gap-1 font-semibold transition-colors ${prOpen
-                    ? "text-blue-900"
-                    : "text-gray-700 hover:text-blue-900"
+                  ? "text-blue-900"
+                  : "text-gray-700 hover:text-blue-900"
                   }`}
               >
                 PR Global
@@ -211,8 +211,8 @@ export default function Header() {
                 type="button"
                 aria-expanded={visaOpen}
                 className={`flex items-center gap-1 font-semibold transition-colors ${visaOpen
-                    ? "text-blue-900"
-                    : "text-gray-700 hover:text-blue-900"
+                  ? "text-blue-900"
+                  : "text-gray-700 hover:text-blue-900"
                   }`}
               >
                 Visa Global
@@ -229,12 +229,12 @@ export default function Header() {
 
             {/* ================= ABOUT ================= */}
 
-            <Link
+            {/* <Link
               href="#"
               className="font-semibold text-gray-700 transition-colors hover:text-blue-900"
             >
               About
-            </Link>
+            </Link> */}
           </nav>
 
           {/* =================================================
@@ -242,18 +242,18 @@ export default function Header() {
           ================================================= */}
 
           <div className="hidden items-center gap-4 md:flex">
-            <button
+            {/* <button
               type="button"
               className="px-4 py-2 font-semibold text-gray-700 transition-colors hover:text-blue-900"
             >
               Log in
-            </button>
+            </button> */}
 
             <button
               type="button"
               className="rounded-full bg-blue-900 px-7 py-2.5 font-bold text-white shadow-lg shadow-purple-200 transition-all hover:bg-red-600 active:scale-95"
             >
-              Sign up
+              Apply Now
             </button>
           </div>
 
@@ -293,7 +293,7 @@ export default function Header() {
 
       <div
         className={`
-          fixed inset-0 z-[110] bg-black/40
+          fixed inset-0 z-110 bg-black/40
           backdrop-blur-[2px]
           transition-opacity duration-300
           md:hidden
@@ -312,8 +312,8 @@ export default function Header() {
 
       <aside
         className={`
-          fixed right-0 top-0 z-[120]
-          flex h-[100dvh]
+          fixed right-0 top-0 z-120
+          flex h-dvh
           w-[min(88vw,390px)]
           flex-col
           bg-white
@@ -345,7 +345,7 @@ export default function Header() {
               width={150}
               height={55}
               alt="Logo"
-              className="h-auto w-[135px]"
+              className="h-auto w-33.75"
             />
           </Link>
 
@@ -408,16 +408,7 @@ export default function Header() {
                 type="button"
                 onClick={() => openMobileMenu("courses")}
                 className="
-                  flex w-full
-                  items-center justify-between
-                  rounded-xl
-                  px-3 py-4
-                  text-left
-                  font-semibold
-                  text-gray-800
-                  transition-colors
-                  hover:bg-gray-50
-                  active:bg-gray-100
+                  flex w-full items-center justify-between rounded-xl px-3 py-4 text-left font-semibold text-gray-800 transition-colors hover:bg-gray-50 active:bg-gray-100
                 "
               >
                 <span>Courses</span>
@@ -512,7 +503,7 @@ export default function Header() {
 
               {/* ABOUT */}
 
-              <Link
+              {/* <Link
                 href="#"
                 onClick={closeMobileDrawer}
                 className="
@@ -532,7 +523,7 @@ export default function Header() {
                   size={19}
                   className="text-gray-400"
                 />
-              </Link>
+              </Link> */}
             </div>
 
             {/* =================================================
@@ -541,7 +532,7 @@ export default function Header() {
 
             <div className="mt-7 border-t border-gray-100 pt-6">
 
-              <button
+              {/* <button
                 type="button"
                 onClick={closeMobileDrawer}
                 className="
@@ -558,7 +549,7 @@ export default function Header() {
                 "
               >
                 Log in
-              </button>
+              </button> */}
 
               <button
                 type="button"
@@ -579,7 +570,7 @@ export default function Header() {
                   active:scale-[0.98]
                 "
               >
-                Sign up
+                Apply Now
               </button>
             </div>
 
