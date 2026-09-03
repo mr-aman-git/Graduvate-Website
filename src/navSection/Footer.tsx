@@ -69,7 +69,7 @@ const Footer = () => {
                                     <FaLocationDot />
                                 </span>
 
-                                <span>New Delhi, India</span>
+                                <span>Antriskh Bhawan Barakhamba Road, CP, New Delhi</span>
                             </div>
 
                             {/* Email */}

@@ -47,7 +47,7 @@ export default function CanadaPRPage() {
             "@type": "ListItem",
             position: 2,
             name: "PR Global",
-            item: "https://graduvate.com/pr-global",
+            item: "https://graduvate.com/pr-global/canada",
           },
           {
             "@type": "ListItem",
