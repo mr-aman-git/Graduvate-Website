@@ -337,13 +337,13 @@ export default function CanadaPRClient() {
       </section>
 
       {/* 6. 4-STEP PROCESS */}
-      {/* <section className="py-20 bg-slate-50 border-y border-slate-200">
+      <section className="py-14 bg-slate-50 border-y border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900">
               Our 4-Step PR Journey
             </h2>
-            <p className="mt-3 text-slate-600">
+            <p className="mt-3 text-slate-600 text-lg">
               From document evaluation to landing in Canada with your PR card.
             </p>
           </div>
@@ -387,14 +387,14 @@ export default function CanadaPRClient() {
                 <span className="text-xs font-semibold text-[#E61C24] block mb-3">
                   {st.sub}
                 </span>
-                <p className="text-xs text-slate-600 leading-relaxed">
+                <p className="text-md text-slate-600 leading-relaxed">
                   {st.desc}
                 </p>
               </div>
             ))}
           </div>
         </div>
-      </section> */}
+      </section>
 
       {/* 7. DOCUMENT CHECKLIST & CALCULATOR */}
       {/* <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -405,9 +405,9 @@ export default function CanadaPRClient() {
       </section> */}
 
       {/* 8. FAQ ACCORDION */}
-      {/* <section className="py-20 bg-slate-50 border-t border-slate-200">
+      <section className="py-14 bg-slate-50 border-t border-slate-200">
         <FaqAccordion />
-      </section> */}
+      </section>
 
       {/* 9. FINAL CTA FOOTER LEAD CAPTURE */}
       {/* <section className="py-20 bg-linear-to-br from-slate-900 via-[#0B4FD8] to-slate-950 text-white">

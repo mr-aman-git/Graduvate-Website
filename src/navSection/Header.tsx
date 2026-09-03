@@ -3,796 +3,296 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  LuChevronDown,
-  LuChevronRight,
-  LuMenu,
-  LuX,
-} from "react-icons/lu";
+import { LuChevronDown, LuChevronRight, LuMenu, LuX } from "react-icons/lu";
 
+import SimpleDropdown from "./SimpleDropdown";
+import { CoursesMenu, FlagDropdownMenu, CountryCardList } from "./MegaMenu";
 import {
-  CoursesMenu,
-  CountriesMenu,
-  CountriesPRGlobal,
-  CountriesVisaGlobal,
-} from "./MegaMenu";
+  aboutUsLinks,
+  studyDestinations,
+  prDestinations,
+  visaDestinations,
+} from "./navData";
 
 import Logo from "../../public/Logo.png";
 
-type MobileMenu =
-  | "courses"
-  | "study"
-  | "pr"
-  | "visa"
-  | null;
+type MenuType = "courses" | "study" | "pr" | "visa" | "about" | null;
 
 export default function Header() {
-  const [courseOpen, setCourseOpen] = useState(false);
-  const [countryOpen, setCountryOpen] = useState(false);
-  const [prOpen, setPrOpen] = useState(false);
-  const [visaOpen, setVisaOpen] = useState(false);
-
+  const [activeMenu, setActiveMenu] = useState<MenuType>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [mobileMenu, setMobileMenu] =
-    useState<MobileMenu>(null);
+  const [mobileSubMenu, setMobileSubMenu] = useState<MenuType>(null);
 
-  /* =====================================================
-     BODY SCROLL LOCK
-  ===================================================== */
-
+  /* Lock body scroll during mobile menu */
   useEffect(() => {
-    if (mobileOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
   }, [mobileOpen]);
 
-  /* =====================================================
-     MOBILE MENU
-  ===================================================== */
-
-  const openMobileMenu = (menu: Exclude<MobileMenu, null>) => {
-    setMobileMenu(menu);
-  };
-
-  const closeMobileMenu = () => {
-    setMobileMenu(null);
-  };
-
-  const closeMobileDrawer = () => {
+  const closeMobile = () => {
     setMobileOpen(false);
-    setMobileMenu(null);
-  };
-
-  /* =====================================================
-     DESKTOP MENU CLOSE HELPERS
-  ===================================================== */
-
-  const closeAllDesktopMenus = () => {
-    setCourseOpen(false);
-    setCountryOpen(false);
-    setPrOpen(false);
-    setVisaOpen(false);
+    setMobileSubMenu(null);
   };
 
   return (
     <>
-      {/* Spacer */}
       <div className="h-20" />
 
-      {/* =================================================
-          HEADER
-      ================================================= */}
-
-      <header className="fixed top-0 left-0 right-0 z-100 border-b border-gray-100 bg-white/80 backdrop-blur-md">
+      <header className="fixed top-0 left-0 right-0 z-100 border-b border-gray-100 bg-white/85 backdrop-blur-md">
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6">
 
-          {/* =================================================
-              LOGO
-          ================================================= */}
+          {/* LOGO */}
+          <Link href="/" onClick={closeMobile} className="shrink-0">
+            <Image
+              src={Logo}
+              width={170}
+              height={60}
+              alt="Graduvate Logo"
+              priority
+              className="h-auto w-34 sm:w-38 md:w-42"
+            />
+          </Link>
 
-          <div className="shrink-0">
-            <Link
-              href="/"
-              onClick={closeMobileDrawer}
-              className="block"
-            >
-              <Image
-                src={Logo}
-                width={170}
-                height={60}
-                alt="Logo"
-                priority
-                className="h-auto w-33.75 sm:w-37.5 md:w-42.5"
-              />
-            </Link>
-          </div>
-
-          {/* =================================================
-              DESKTOP NAVIGATION
-          ================================================= */}
-
-          <nav className="hidden items-center gap-8 md:flex">
-
-            {/* ================= COURSES ================= */}
-
+          {/* DESKTOP NAVIGATION */}
+          <nav className="hidden items-center gap-7 lg:gap-8 lg:flex">
+            {/* 1. COURSES (Mega Menu) */}
             <div
               className="relative py-7"
-              onMouseEnter={() => setCourseOpen(true)}
-              onMouseLeave={() => setCourseOpen(false)}
+              onMouseEnter={() => setActiveMenu("courses")}
+              onMouseLeave={() => setActiveMenu(null)}
             >
               <button
                 type="button"
-                aria-expanded={courseOpen}
-                className={`flex items-center gap-1 font-semibold transition-colors ${courseOpen
-                  ? "text-blue-900"
-                  : "text-gray-700 hover:text-blue-900"
+                className={`flex items-center gap-1 font-semibold transition-colors ${activeMenu === "courses" ? "text-blue-900" : "text-gray-700 hover:text-blue-900"
                   }`}
               >
                 Courses
-
                 <LuChevronDown
-                  size={17}
-                  className={`transition-transform duration-300 ${courseOpen ? "rotate-180" : ""
-                    }`}
+                  size={16}
+                  className={`transition-transform duration-200 ${activeMenu === "courses" ? "rotate-180" : ""}`}
                 />
               </button>
-
-              {courseOpen && <CoursesMenu />}
+              {activeMenu === "courses" && <CoursesMenu />}
             </div>
 
-            {/* ================= STUDY GLOBAL ================= */}
-
+            {/* 2. STUDY GLOBAL (Flag Dropdown) */}
             <div
               className="relative py-7"
-              onMouseEnter={() => setCountryOpen(true)}
-              onMouseLeave={() => setCountryOpen(false)}
+              onMouseEnter={() => setActiveMenu("study")}
+              onMouseLeave={() => setActiveMenu(null)}
             >
               <button
                 type="button"
-                aria-expanded={countryOpen}
-                className={`flex items-center gap-1 font-semibold transition-colors ${countryOpen
-                  ? "text-blue-900"
-                  : "text-gray-700 hover:text-blue-900"
+                className={`flex items-center gap-1 font-semibold transition-colors ${activeMenu === "study" ? "text-blue-900" : "text-gray-700 hover:text-blue-900"
                   }`}
               >
                 Study Global
-
                 <LuChevronDown
-                  size={17}
-                  className={`transition-transform duration-300 ${countryOpen ? "rotate-180" : ""
-                    }`}
+                  size={16}
+                  className={`transition-transform duration-200 ${activeMenu === "study" ? "rotate-180" : ""}`}
                 />
               </button>
-
-              {countryOpen && <CountriesMenu />}
+              {activeMenu === "study" && (
+                <FlagDropdownMenu title="Study Destinations" items={studyDestinations} />
+              )}
             </div>
 
-            {/* ================= PR GLOBAL ================= */}
-
+            {/* 3. PR GLOBAL (Flag Dropdown) */}
             <div
               className="relative py-7"
-              onMouseEnter={() => setPrOpen(true)}
-              onMouseLeave={() => setPrOpen(false)}
+              onMouseEnter={() => setActiveMenu("pr")}
+              onMouseLeave={() => setActiveMenu(null)}
             >
               <button
                 type="button"
-                aria-expanded={prOpen}
-                className={`flex items-center gap-1 font-semibold transition-colors ${prOpen
-                  ? "text-blue-900"
-                  : "text-gray-700 hover:text-blue-900"
+                className={`flex items-center gap-1 font-semibold transition-colors ${activeMenu === "pr" ? "text-blue-900" : "text-gray-700 hover:text-blue-900"
                   }`}
               >
                 PR Global
-
                 <LuChevronDown
-                  size={17}
-                  className={`transition-transform duration-300 ${prOpen ? "rotate-180" : ""
-                    }`}
+                  size={16}
+                  className={`transition-transform duration-200 ${activeMenu === "pr" ? "rotate-180" : ""}`}
                 />
               </button>
-
-              {prOpen && <CountriesPRGlobal />}
+              {activeMenu === "pr" && (
+                <FlagDropdownMenu title="Permanent Residency" items={prDestinations} />
+              )}
             </div>
 
-            {/* ================= VISA GLOBAL ================= */}
-
+            {/* 4. VISA GLOBAL (Flag Dropdown) */}
             <div
               className="relative py-7"
-              onMouseEnter={() => setVisaOpen(true)}
-              onMouseLeave={() => setVisaOpen(false)}
+              onMouseEnter={() => setActiveMenu("visa")}
+              onMouseLeave={() => setActiveMenu(null)}
             >
               <button
                 type="button"
-                aria-expanded={visaOpen}
-                className={`flex items-center gap-1 font-semibold transition-colors ${visaOpen
-                  ? "text-blue-900"
-                  : "text-gray-700 hover:text-blue-900"
+                className={`flex items-center gap-1 font-semibold transition-colors ${activeMenu === "visa" ? "text-blue-900" : "text-gray-700 hover:text-blue-900"
                   }`}
               >
                 Visa Global
-
                 <LuChevronDown
-                  size={17}
-                  className={`transition-transform duration-300 ${visaOpen ? "rotate-180" : ""
-                    }`}
+                  size={16}
+                  className={`transition-transform duration-200 ${activeMenu === "visa" ? "rotate-180" : ""}`}
                 />
               </button>
-
-              {visaOpen && <CountriesVisaGlobal />}
+              {activeMenu === "visa" && (
+                <FlagDropdownMenu title="Visa Categories" items={visaDestinations} />
+              )}
             </div>
 
-            {/* ================= ABOUT ================= */}
-
-            {/* <Link
-              href="#"
-              className="font-semibold text-gray-700 transition-colors hover:text-blue-900"
+            {/* 5. ABOUT / WHO WE ARE (Simple Text Dropdown) */}
+            <div
+              className="relative py-7"
+              onMouseEnter={() => setActiveMenu("about")}
+              onMouseLeave={() => setActiveMenu(null)}
             >
-              About
-            </Link> */}
+              <button
+                type="button"
+                className={`flex items-center gap-1 font-semibold transition-colors ${activeMenu === "about" ? "text-blue-900" : "text-gray-700 hover:text-blue-900"
+                  }`}
+              >
+                Who We Are
+                <LuChevronDown
+                  size={16}
+                  className={`transition-transform duration-200 ${activeMenu === "about" ? "rotate-180" : ""}`}
+                />
+              </button>
+              {activeMenu === "about" && (
+                <SimpleDropdown items={aboutUsLinks} onItemClick={() => setActiveMenu(null)} />
+              )}
+            </div>
           </nav>
 
-          {/* =================================================
-              DESKTOP ACTION BUTTONS
-          ================================================= */}
-
-          <div className="hidden items-center gap-4 md:flex">
-            {/* <button
-              type="button"
-              className="px-4 py-2 font-semibold text-gray-700 transition-colors hover:text-blue-900"
-            >
-              Log in
-            </button> */}
-
-            <button
-              type="button"
-              className="rounded-full bg-blue-900 px-7 py-2.5 font-bold text-white shadow-lg shadow-purple-200 transition-all hover:bg-red-600 active:scale-95"
+          {/* DESKTOP ACTIONS */}
+          <div className="hidden items-center gap-4 lg:flex">
+            <Link
+              href="/"
+              className="rounded-full bg-blue-900 px-6 py-2.5 font-bold text-white shadow-md shadow-blue-900/10 transition-all hover:bg-red-600 active:scale-95 text-sm"
             >
               Apply Now
-            </button>
+            </Link>
           </div>
 
-          {/* =================================================
-              MOBILE HAMBURGER
-          ================================================= */}
-
+          {/* MOBILE HAMBURGER BUTTON */}
           <button
             type="button"
-            onClick={() => {
-              closeAllDesktopMenus();
-              setMobileOpen(true);
-            }}
-            aria-label="Open navigation menu"
-            aria-expanded={mobileOpen}
-            className="
-              flex h-11 w-11
-              items-center justify-center
-              rounded-xl
-              border border-gray-200
-              bg-white
-              text-gray-800
-              shadow-sm
-              transition-all
-              active:scale-95
-              md:hidden
-            "
+            onClick={() => setMobileOpen(true)}
+            aria-label="Toggle Menu"
+            className="flex h-11 w-11 items-center justify-center rounded-xl border border-gray-200 bg-white text-gray-800 shadow-sm active:scale-95 lg:hidden"
           >
-            <LuMenu size={25} />
+            <LuMenu size={24} />
           </button>
         </div>
       </header>
 
-      {/* =====================================================
-          MOBILE OVERLAY
-      ===================================================== */}
-
+      {/* MOBILE BACKDROP */}
       <div
-        className={`
-          fixed inset-0 z-110 bg-black/40
-          backdrop-blur-[2px]
-          transition-opacity duration-300
-          md:hidden
-          ${mobileOpen
-            ? "pointer-events-auto opacity-100"
-            : "pointer-events-none opacity-0"
-          }
-        `}
-        onClick={closeMobileDrawer}
-        aria-hidden="true"
+        className={`fixed inset-0 z-110 bg-black/40 backdrop-blur-[2px] transition-opacity duration-300 lg:hidden ${mobileOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
+          }`}
+        onClick={closeMobile}
       />
 
-      {/* =====================================================
-          MOBILE DRAWER
-      ===================================================== */}
-
+      {/* MOBILE DRAWER */}
       <aside
-        className={`
-          fixed right-0 top-0 z-120
-          flex h-dvh
-          w-[min(88vw,390px)]
-          flex-col
-          bg-white
-          shadow-2xl
-          transition-transform
-          duration-300
-          ease-[cubic-bezier(0.22,1,0.36,1)]
-          md:hidden
-          ${mobileOpen
-            ? "translate-x-0"
-            : "translate-x-full"
-          }
-        `}
-        aria-hidden={!mobileOpen}
+        className={`fixed right-0 top-0 z-120 flex h-dvh w-[min(88vw,380px)] flex-col bg-white shadow-2xl transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] lg:hidden ${mobileOpen ? "translate-x-0" : "translate-x-full"
+          }`}
       >
-
-        {/* =================================================
-            DRAWER HEADER
-        ================================================= */}
-
         <div className="flex h-20 shrink-0 items-center justify-between border-b border-gray-100 px-5">
-          <Link
-            href="/"
-            onClick={closeMobileDrawer}
-            className="block"
-          >
-            <Image
-              src={Logo}
-              width={150}
-              height={55}
-              alt="Logo"
-              className="h-auto w-33.75"
-            />
+          <Link href="/" onClick={closeMobile}>
+            <Image src={Logo} width={140} height={50} alt="Logo" className="h-auto w-32" />
           </Link>
-
           <button
             type="button"
-            onClick={closeMobileDrawer}
-            aria-label="Close navigation menu"
-            className="
-              flex h-10 w-10
-              items-center justify-center
-              rounded-full
-              bg-gray-100
-              text-gray-700
-              transition-all
-              hover:bg-gray-200
-              active:scale-95
-            "
+            onClick={closeMobile}
+            className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-700 active:scale-95"
           >
-            <LuX size={21} />
+            <LuX size={20} />
           </button>
         </div>
 
-        {/* =================================================
-            DRAWER CONTENT
-        ================================================= */}
-
         <div className="relative flex-1 overflow-hidden">
-
-          {/* =================================================
-              MAIN MOBILE MENU
-          ================================================= */}
-
+          {/* Level 1: Main Menu */}
           <div
-            className={`
-              absolute inset-0
-              overflow-y-auto
-              px-4 py-5
-              transition-transform
-              duration-300
-              ${mobileMenu
-                ? "-translate-x-full"
-                : "translate-x-0"
-              }
-            `}
+            className={`absolute inset-0 overflow-y-auto px-4 py-5 transition-transform duration-300 ${mobileSubMenu ? "-translate-x-full" : "translate-x-0"
+              }`}
           >
-
-            {/* MENU LABEL */}
-
-            <div className="mb-4 px-2">
-              <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-gray-400">
-                Navigation
-              </p>
-            </div>
-
+            <p className="mb-3 px-2 text-[10px] font-bold uppercase tracking-widest text-gray-400">Navigation</p>
             <div className="space-y-1">
-
-              {/* COURSES */}
-
-              <button
-                type="button"
-                onClick={() => openMobileMenu("courses")}
-                className="
-                  flex w-full items-center justify-between rounded-xl px-3 py-4 text-left font-semibold text-gray-800 transition-colors hover:bg-gray-50 active:bg-gray-100
-                "
-              >
-                <span>Courses</span>
-
-                <LuChevronRight
-                  size={19}
-                  className="text-gray-400"
-                />
-              </button>
-
-              {/* STUDY GLOBAL */}
-
-              <button
-                type="button"
-                onClick={() => openMobileMenu("study")}
-                className="
-                  flex w-full
-                  items-center justify-between
-                  rounded-xl
-                  px-3 py-4
-                  text-left
-                  font-semibold
-                  text-gray-800
-                  transition-colors
-                  hover:bg-gray-50
-                  active:bg-gray-100
-                "
-              >
-                <span>Study Global</span>
-
-                <LuChevronRight
-                  size={19}
-                  className="text-gray-400"
-                />
-              </button>
-
-              {/* PR GLOBAL */}
-
-              <button
-                type="button"
-                onClick={() => openMobileMenu("pr")}
-                className="
-                  flex w-full
-                  items-center justify-between
-                  rounded-xl
-                  px-3 py-4
-                  text-left
-                  font-semibold
-                  text-gray-800
-                  transition-colors
-                  hover:bg-gray-50
-                  active:bg-gray-100
-                "
-              >
-                <span>PR Global</span>
-
-                <LuChevronRight
-                  size={19}
-                  className="text-gray-400"
-                />
-              </button>
-
-              {/* VISA GLOBAL */}
-
-              <button
-                type="button"
-                onClick={() => openMobileMenu("visa")}
-                className="
-                  flex w-full
-                  items-center justify-between
-                  rounded-xl
-                  px-3 py-4
-                  text-left
-                  font-semibold
-                  text-gray-800
-                  transition-colors
-                  hover:bg-gray-50
-                  active:bg-gray-100
-                "
-              >
-                <span>Visa Global</span>
-
-                <LuChevronRight
-                  size={19}
-                  className="text-gray-400"
-                />
-              </button>
-
-              {/* DIVIDER */}
-
-              <div className="my-3 h-px bg-gray-100" />
-
-              {/* ABOUT */}
-
-              {/* <Link
-                href="#"
-                onClick={closeMobileDrawer}
-                className="
-                  flex w-full
-                  items-center justify-between
-                  rounded-xl
-                  px-3 py-4
-                  font-semibold
-                  text-gray-800
-                  transition-colors
-                  hover:bg-gray-50
-                "
-              >
-                About
-
-                <LuChevronRight
-                  size={19}
-                  className="text-gray-400"
-                />
-              </Link> */}
+              {(["courses", "study", "pr", "visa", "about"] as MenuType[]).map((key) => {
+                const labels: Record<string, string> = {
+                  courses: "Courses",
+                  study: "Study Global",
+                  pr: "PR Global",
+                  visa: "Visa Global",
+                  about: "Who We Are",
+                };
+                return (
+                  <button
+                    key={key}
+                    type="button"
+                    onClick={() => setMobileSubMenu(key)}
+                    className="flex w-full items-center justify-between rounded-xl px-3 py-3.5 text-left font-semibold text-gray-800 hover:bg-gray-50 active:bg-gray-100"
+                  >
+                    <span>{labels[key!]}</span>
+                    <LuChevronRight size={18} className="text-gray-400" />
+                  </button>
+                );
+              })}
             </div>
 
-            {/* =================================================
-                MOBILE ACTIONS
-            ================================================= */}
-
-            <div className="mt-7 border-t border-gray-100 pt-6">
-
-              {/* <button
-                type="button"
-                onClick={closeMobileDrawer}
-                className="
-                  flex w-full
-                  items-center justify-center
-                  rounded-xl
-                  border border-gray-200
-                  px-5 py-3.5
-                  font-semibold
-                  text-gray-700
-                  transition-all
-                  hover:border-blue-900
-                  hover:text-blue-900
-                "
-              >
-                Log in
-              </button> */}
-
-              <button
-                type="button"
-                onClick={closeMobileDrawer}
-                className="
-                  mt-3
-                  flex w-full
-                  items-center justify-center
-                  rounded-xl
-                  bg-blue-900
-                  px-5 py-3.5
-                  font-bold
-                  text-white
-                  shadow-lg
-                  shadow-blue-900/20
-                  transition-all
-                  hover:bg-red-600
-                  active:scale-[0.98]
-                "
+            <div className="mt-8 border-t border-gray-100 pt-6">
+              <Link
+                href="/assessment"
+                onClick={closeMobile}
+                className="flex w-full items-center justify-center rounded-xl bg-blue-900 py-3.5 font-bold text-white transition-all hover:bg-red-600 active:scale-[0.98]"
               >
                 Apply Now
-              </button>
-            </div>
-
-            {/* SMALL FOOTER TEXT */}
-
-            <div className="mt-8 px-2 pb-6">
-              <p className="text-xs leading-5 text-gray-400">
-                Explore courses, study destinations,
-                PR and visa opportunities.
-              </p>
+              </Link>
             </div>
           </div>
 
-          {/* =================================================
-              COURSES SUB MENU
-          ================================================= */}
-
+          {/* Level 2: Sub Menu Slider */}
           <div
-            className={`
-              absolute inset-0
-              overflow-y-auto
-              bg-white
-              transition-transform
-              duration-300
-              ${mobileMenu === "courses"
-                ? "translate-x-0"
-                : "translate-x-full"
-              }
-            `}
+            className={`absolute inset-0 overflow-y-auto bg-white transition-transform duration-300 ${mobileSubMenu ? "translate-x-0" : "translate-x-full"
+              }`}
           >
             <div className="sticky top-0 z-10 flex items-center gap-3 border-b border-gray-100 bg-white px-4 py-4">
               <button
                 type="button"
-                onClick={closeMobileMenu}
-                className="
-                  flex h-9 w-9
-                  items-center justify-center
-                  rounded-full
-                  bg-gray-100
-                  text-gray-700
-                "
+                onClick={() => setMobileSubMenu(null)}
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 text-gray-700"
               >
-                <LuChevronRight
-                  size={19}
-                  className="rotate-180"
-                />
+                <LuChevronRight size={18} className="rotate-180" />
               </button>
-
-              <div>
-                <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400">
-                  Explore
-                </p>
-
-                <h2 className="text-base font-bold text-gray-900">
-                  Courses
-                </h2>
-              </div>
+              <h2 className="text-base font-bold capitalize text-gray-900">
+                {mobileSubMenu === "about" ? "Who We Are" : mobileSubMenu}
+              </h2>
             </div>
 
             <div className="px-4 py-5">
-              <CoursesMenu
-                onClose={closeMobileDrawer}
-              />
-            </div>
-          </div>
-
-          {/* =================================================
-              STUDY GLOBAL SUB MENU
-          ================================================= */}
-
-          <div
-            className={`
-              absolute inset-0
-              overflow-y-auto
-              bg-white
-              transition-transform
-              duration-300
-              ${mobileMenu === "study"
-                ? "translate-x-0"
-                : "translate-x-full"
-              }
-            `}
-          >
-            <div className="sticky top-0 z-10 flex items-center gap-3 border-b border-gray-100 bg-white px-4 py-4">
-              <button
-                type="button"
-                onClick={closeMobileMenu}
-                className="
-                  flex h-9 w-9
-                  items-center justify-center
-                  rounded-full
-                  bg-gray-100
-                  text-gray-700
-                "
-              >
-                <LuChevronRight
-                  size={19}
-                  className="rotate-180"
-                />
-              </button>
-
-              <div>
-                <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400">
-                  Explore
-                </p>
-
-                <h2 className="text-base font-bold text-gray-900">
-                  Study Global
-                </h2>
-              </div>
-            </div>
-
-            <div className="px-4 py-5">
-              <CountriesMenu
-                onClose={closeMobileDrawer}
-              />
-            </div>
-          </div>
-
-          {/* =================================================
-              PR GLOBAL SUB MENU
-          ================================================= */}
-
-          <div
-            className={`
-              absolute inset-0
-              overflow-y-auto
-              bg-white
-              transition-transform
-              duration-300
-              ${mobileMenu === "pr"
-                ? "translate-x-0"
-                : "translate-x-full"
-              }
-            `}
-          >
-            <div className="sticky top-0 z-10 flex items-center gap-3 border-b border-gray-100 bg-white px-4 py-4">
-              <button
-                type="button"
-                onClick={closeMobileMenu}
-                className="
-                  flex h-9 w-9
-                  items-center justify-center
-                  rounded-full
-                  bg-gray-100
-                  text-gray-700
-                "
-              >
-                <LuChevronRight
-                  size={19}
-                  className="rotate-180"
-                />
-              </button>
-
-              <div>
-                <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400">
-                  Explore
-                </p>
-
-                <h2 className="text-base font-bold text-gray-900">
-                  PR Global
-                </h2>
-              </div>
-            </div>
-
-            <div className="px-4 py-5">
-              <CountriesPRGlobal
-                onClose={closeMobileDrawer}
-              />
-            </div>
-          </div>
-
-          {/* =================================================
-              VISA GLOBAL SUB MENU
-          ================================================= */}
-
-          <div
-            className={`
-              absolute inset-0
-              overflow-y-auto
-              bg-white
-              transition-transform
-              duration-300
-              ${mobileMenu === "visa"
-                ? "translate-x-0"
-                : "translate-x-full"
-              }
-            `}
-          >
-            <div className="sticky top-0 z-10 flex items-center gap-3 border-b border-gray-100 bg-white px-4 py-4">
-              <button
-                type="button"
-                onClick={closeMobileMenu}
-                className="
-                  flex h-9 w-9
-                  items-center justify-center
-                  rounded-full
-                  bg-gray-100
-                  text-gray-700
-                "
-              >
-                <LuChevronRight
-                  size={19}
-                  className="rotate-180"
-                />
-              </button>
-
-              <div>
-                <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400">
-                  Explore
-                </p>
-
-                <h2 className="text-base font-bold text-gray-900">
-                  Visa Global
-                </h2>
-              </div>
-            </div>
-
-            <div className="px-4 py-5">
-              <CountriesVisaGlobal
-                onClose={closeMobileDrawer}
-              />
+              {mobileSubMenu === "courses" && <CoursesMenu onClose={closeMobile} />}
+              {mobileSubMenu === "study" && <CountryCardList items={studyDestinations} onClose={closeMobile} />}
+              {mobileSubMenu === "pr" && <CountryCardList items={prDestinations} onClose={closeMobile} />}
+              {mobileSubMenu === "visa" && <CountryCardList items={visaDestinations} onClose={closeMobile} />}
+              {mobileSubMenu === "about" && (
+                <ul className="space-y-1">
+                  {aboutUsLinks.map((link) => (
+                    <li key={link.label}>
+                      <Link
+                        href={link.href}
+                        onClick={closeMobile}
+                        className="flex items-center justify-between rounded-xl px-3 py-3 text-sm font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-900"
+                      >
+                        {link.label}
+                        <LuChevronRight size={16} className="text-gray-400" />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
           </div>
         </div>
