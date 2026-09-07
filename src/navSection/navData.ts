@@ -19,9 +19,9 @@ export interface CourseItem {
 
 /* ================= SIMPLE TEXT DROPDOWNS ================= */
 export const aboutUsLinks: NavItemLink[] = [
-    { label: "Free Eligibility Check", href: "/" },
+    { label: "Free Eligibility Check", href: "/eligibility-check" },
     { label: "About Our Story", href: "/" },
-    { label: "Contact Us", href: "/" },
+    { label: "Contact Us", href: "/contact-us" },
 ];
 
 /* ================= COURSES MEGA MENU DATA ================= */
