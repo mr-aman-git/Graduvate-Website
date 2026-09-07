@@ -12,14 +12,16 @@ import Link from "next/link";
 
 const Contact = () => {
   // Regional Branches Data
+
   const regionalBranches = [
     {
-      city: "Madurai",
+      city: "Chennai",
       address:
-        "No-62,3rd Floor (Near Thamukkam) Azhagar Kovil Rd,Thallakulam Madurai, Tamil Nadu 625002",
-      phone: "+91 9159 0 91595",
+        "4M 4th floor Century Plaza 560 to 562, Anna Salai, Teynampet, Chennai - 600017",
+      phone: "+91 7871588345",
       link: "#",
     },
+
     {
       city: "Coimbatore",
       phone: "+91 99949 13847",
@@ -144,7 +146,7 @@ const Contact = () => {
           <div className="flex items-center gap-3 mb-6">
             <span className="w-2.5 h-8 bg-red-700 rounded-full"></span>
             <h2 className="text-2xl sm:text-3xl font-bold text-blue-900">
-              Corporate Office — <span className="text-red-700">Chennai</span>
+              Corporate Office — <span className="text-red-700">Madurai</span>
             </h2>
           </div>
 
@@ -155,26 +157,25 @@ const Contact = () => {
                 <FaBuilding /> Corporate Branch
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                Chennai Office
+                Madurai Office
               </h3>
 
               <div className="space-y-4 text-gray-700">
                 <div className="flex items-start gap-3">
                   <FaMapMarkerAlt className="shrink-0 mt-1 text-red-600 text-lg" />
                   <p className="text-base leading-relaxed">
-                    4th floor no:560 to 562, Century Plaza, 4M, Anna Salai, opp
-                    by INDIMET PVT LTD., Thiru Vi Ka Kudiyiruppu, Teynampet,
-                    Chennai, Tamil Nadu 600017
+                    3rd Floor 62, Alagar Kovil main Rd, near tamukkam main road,
+                    tallakulam, Madurai 625002
                   </p>
                 </div>
 
                 <div className="flex items-center gap-3">
                   <FaPhoneAlt className="shrink-0 text-red-600 text-base" />
                   <a
-                    href="tel:+917871588345"
+                    href="tel:+91 9159 0 91595"
                     className="text-base font-semibold hover:text-blue-900 transition-colors"
                   >
-                    +91 7871588345
+                    +91 9159 0 91595
                   </a>
                 </div>
               </div>
@@ -190,10 +191,10 @@ const Contact = () => {
             </div>
 
             {/* Map Div */}
-            <div className="w-full lg:w-1/2 h-64 sm:h-80 lg:h-auto min-h-[260px] rounded-2xl overflow-hidden border border-gray-100 shadow-inner">
+            <div className="w-full lg:w-1/2 h-64 sm:h-80 lg:h-auto min-h-65 rounded-2xl overflow-hidden border border-gray-100 shadow-inner">
               <iframe
                 title="Chennai Corporate Office Map"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4175.333528395069!2d80.2478667!3d13.0448404!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5267003406f145%3A0xf871312c282ad898!2sStudy%20MBBS%20Overseas%20Education!5e1!3m2!1sen!2sin!4v1788590251274!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d16886.61079891549!2d78.13029681704293!3d9.936048214562549!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b00c5c07f8d7b07%3A0x2eb9c8e519995bf!2s3rd%20Floor%2C%2062%2C%20Alagar%20Kovil%20Main%20Rd%2C%20Mellur%2C%20Tallakulam%2C%20Madurai%2C%20Tamil%20Nadu%20625002!5e1!3m2!1sen!2sin!4v1788792751466!5m2!1sen!2sin"
                 className="w-full h-full border-0"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
