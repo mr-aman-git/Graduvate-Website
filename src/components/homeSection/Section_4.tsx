@@ -64,7 +64,7 @@ const Section_4 = () => {
                         viewport={{ once: true }}
                         className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-3"
                     >
-                        We make your study abroad <br className="hidden md:block" /> journey effortless
+                        We make your settled abroad <br className="hidden md:block" /> journey
                     </motion.h2>
                 </div>
 

@@ -3,10 +3,9 @@ import Image from 'next/image';
 import { ArrowRight, Send } from "lucide-react";
 const Section_1: React.FC = () => {
     return (
-        <section className="bg-white text-gray-900 px-6 lg:px-20 md:py-20 pt-10">
-            <div className="flex flex-wrap md:flex-nowrap  gap-10 items-center">
-
-                <div className="flex flex-col items-start space-y-6 max-w-170">
+        <section className="bg-white text-gray-900 p-5 md:px-16">
+            <div className="flex flex-wrap lg:flex-nowrap justify-center items-center">
+                <div className="flex flex-col items-start">
 
                     <div className="bg-blue-100 text-red-600 px-4 py-2 rounded-full font-semibold text-sm inline-flex items-center space-x-2 shadow-sm">
                         <span className="w-2.5 h-2.5 bg-red-600 rounded-full"></span>
@@ -15,7 +14,7 @@ const Section_1: React.FC = () => {
 
                     {/* 2. Main Refined Headline */}
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold  text-gray-900">
-                        Study Abroad <span className="text-blue-900 relative inline-block">With Skill</span> Everyday Anytime, & Anywhere.
+                        Study Work <span className="text-blue-900 relative inline-block">Settled</span> in Abroad.
                     </h1>
 
                     {/* 3. Re-written Description (more professional) */}
@@ -51,7 +50,7 @@ const Section_1: React.FC = () => {
                         alt="Who We Are"
                         height={600}
                         width={600}
-                        className="w-full h-150 object-contain"
+                        className="w-full h-140 object-contain"
                     />
 
                 </div>

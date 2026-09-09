@@ -21,13 +21,13 @@ const destinations = [
 
 const Section_2 = () => {
     return (
-        <section className="md:py-16 pt-10 px-4 bg-white">
+        <section className=" px-4 bg-white">
             <div className="max-w-7xl mx-auto">
 
                 {/* Header */}
                 <div className="text-center mb-12">
                     <h2 className="text-3xl md:text-5xl font-bold mb-3 text-gray-900">
-                        Explore popular study destinations
+                        Explore study destinations
                     </h2>
                     <div className="w-20 h-1 bg-red-600 mx-auto mb-4 rounded-full"></div>
                     <p className="text-gray-600 max-w-xl mx-auto font-medium">
