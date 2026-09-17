@@ -44,7 +44,6 @@ const Section_1: React.FC = () => {
 
                 {/* ----- Right Side Image Placeholder ----- */}
                 <div className="">
-
                     <Image
                         src="/hero/hero.webp"
                         alt="Who We Are"
@@ -52,7 +51,6 @@ const Section_1: React.FC = () => {
                         width={600}
                         className="w-full h-140 object-contain"
                     />
-
                 </div>
             </div>
         </section>

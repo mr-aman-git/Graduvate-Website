@@ -9,7 +9,7 @@ const prCountries = [
     code: "CA",
     flag: "🇨🇦",
     tag: "High Success Rate",
-    href: "#", // Baad me /calculator/canada ya relevant link daal sakte ho
+    href: "/eligibility-check/canada", // Baad me /calculator/canada ya relevant link daal sakte ho
   },
   {
     name: "Australia PR",

@@ -84,7 +84,7 @@ const Contact = () => {
           <div className="flex items-center gap-3 mb-6">
             <span className="w-2.5 h-8 bg-blue-900 rounded-full"></span>
             <h2 className="text-2xl sm:text-3xl font-bold text-blue-900">
-              Headquarters — <span className="text-red-700">New Delhi</span>
+              Head Office — <span className="text-red-700">New Delhi</span>
             </h2>
           </div>
 
@@ -208,7 +208,7 @@ const Contact = () => {
           <div className="flex items-center gap-4 mb-10">
             <div className="h-0.5 flex-1 bg-gray-200"></div>
             <h3 className="text-2xl sm:text-3xl font-bold text-blue-900 px-4 text-center">
-              Our Regional <span className="text-red-700">Branches</span>
+              Our Regional <span className="text-red-700">Offices</span>
             </h3>
             <div className="h-0.5 flex-1 bg-gray-200"></div>
           </div>
@@ -275,7 +275,7 @@ const Contact = () => {
           <div className="flex items-center gap-4 mb-10">
             <div className="h-0.5 flex-1 bg-gray-200"></div>
             <h3 className="text-2xl sm:text-3xl font-bold text-blue-900 px-4 text-center">
-              Our Foreign <span className="text-red-700">Offices</span>
+              Our International <span className="text-red-700">Offices</span>
             </h3>
             <div className="h-0.5 flex-1 bg-gray-200"></div>
           </div>

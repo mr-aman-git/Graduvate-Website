@@ -20,3 +20,18 @@ html, body li{
 html, body h1, h2, h3, h4{
     font-family: Mont;
 }
+
+.primaryColor{
+    color: #0B4FD8;
+}
+.secondaryColor{
+    color: #E61C24;
+}
+.secondaryBgColor{
+    background-color: #E61C24;
+}
+@layer components {
+  .crs-input {
+    @apply w-full rounded-xl border border-slate-200 bg-white px-4 py-3.5 text-sm font-medium text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-blue-600 focus:ring-4 focus:ring-blue-100;
+  }
+}
