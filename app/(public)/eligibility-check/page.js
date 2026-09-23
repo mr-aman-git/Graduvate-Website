@@ -17,7 +17,7 @@ const prCountries = [
     code: "AU",
     flag: "🇦🇺",
     tag: "Direct PR Pathway",
-    href: "#", // Baad me /calculator/australia
+    href: "/eligibility-check/australia", // Baad me /calculator/australia
   },
   {
     name: "Germany PR",
