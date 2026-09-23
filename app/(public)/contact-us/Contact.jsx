@@ -172,17 +172,17 @@ const Contact = () => {
                 <div className="flex items-center gap-3">
                   <FaPhoneAlt className="shrink-0 text-red-600 text-base" />
                   <a
-                    href="tel:+91 9159 0 91595"
+                    href="tel:+91 8608608668"
                     className="text-base font-semibold hover:text-blue-900 transition-colors"
                   >
-                    +91 9159 0 91595
+                    +91 8608608668
                   </a>
                 </div>
               </div>
 
               <div className="mt-6 pt-6 border-t border-gray-100 flex gap-4">
                 <a
-                  href="tel:+917871588345"
+                  href="tel:+918608608668"
                   className="px-6 py-2.5 bg-blue-900 hover:bg-red-700 text-white font-semibold text-sm rounded-xl transition-all shadow-md active:scale-95"
                 >
                   Call Now
