@@ -5,7 +5,24 @@ import Logo from "../../public/Logo.png";
 import WhatsappSticky from './WhatsappSticky';
 import { FaLocationDot, FaEnvelope, FaPhone } from "react-icons/fa6";
 import { FaInstagram, FaFacebookF } from "react-icons/fa";
+import {
+    FaYoutube,
+    FaWhatsapp,
+    FaPhoneAlt,
+    FaMapMarkerAlt,
+} from "react-icons/fa";
 const Footer = () => {
+    const locations = [
+        "New Delhi, India",
+        "Madurai, TN",
+        "Coimbatore, TN",
+        "Chennai, TN",
+        "Trichy, TN",
+        "Ramanathapuram, TN",
+        "Dubai, UAE",
+        "Moscow, Russia",
+    ];
+
     return (
         <footer className="bg-white border-t border-gray-100 pt-16 pb-8">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -47,60 +64,47 @@ const Footer = () => {
                     </div>
 
                     {/* Contact Info */}
+
+
+
+                    {/* ================= CONTACT ================= */}
                     <div>
-                        <h4 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4">
-                            Address
+                        <h4 className="text-gray-900 text-lg font-semibold mb-4 relative">
+                            Contact Info
+
                         </h4>
 
-                        <div className="space-y-3 text-gray-600">
-
-                            {/* Location 1 */}
-                            <div className="flex items-start gap-2">
-                                <span className="mt-1 text-blue-600" >
-                                    <FaLocationDot />
-                                </span>
-
-                                <span>Tamil Nadu, India</span>
-                            </div>
-
-                            {/* Location 2 */}
-                            <div className="flex items-start gap-2">
-                                <span className="mt-1 text-blue-600">
-                                    <FaLocationDot />
-                                </span>
-
-                                <span>Antriskh Bhawan Barakhamba Road, CP, New Delhi</span>
-                            </div>
-
-                            {/* Email */}
-                            <div className="flex items-center gap-2">
-                                <span className="mt-1 text-blue-600">
-                                    <FaEnvelope />
-                                </span>
-
-                                <a
-                                    href="mailto:graduvateabroad@gmail.com"
-                                    className="hover:text-blue-600 transition"
-                                >
-                                    graduvateabroad@gmail.com
-                                </a>
-                            </div>
+                        <ul className="space-y-4 text-sm text-[#4A4A4A]">
+                            {/* Locations */}
+                            {locations.map((loc, index) => (
+                                <li key={index} className="flex items-start gap-3">
+                                    <FaMapMarkerAlt className="text-blue-900 mt-1 shrink-0" />
+                                    <span>{loc}</span>
+                                </li>
+                            ))}
 
                             {/* Phone */}
-                            <div className="flex items-center gap-2">
-                                <span className="mt-1 text-blue-600">
-                                    <FaPhone />
-                                </span>
-
-                                <a
+                            <li>
+                                <Link
                                     href="tel:+918608608668"
-                                    className="hover:text-blue-600 transition"
+                                    className="flex items-start gap-3 hover:text-blue-900 transition"
                                 >
-                                    +91 8608608668
-                                </a>
-                            </div>
+                                    <FaPhoneAlt className="text-blue-900 mt-1 shrink-0" />
+                                    <span>+91 8608608668</span>
+                                </Link>
+                            </li>
 
-                        </div>
+                            {/* Email */}
+                            <li>
+                                <Link
+                                    href="mailto:graduvateabroad@gmail.com"
+                                    className="flex items-start gap-3 hover:text-blue-900 transition"
+                                >
+                                    <FaEnvelope className="text-blue-900 mt-1 shrink-0" />
+                                    <span>graduvateabroad@gmail.com</span>
+                                </Link>
+                            </li>
+                        </ul>
                     </div>
                 </div>
 
