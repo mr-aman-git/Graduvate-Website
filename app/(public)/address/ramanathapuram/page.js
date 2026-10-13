@@ -26,7 +26,6 @@ export const metadata = {
     "Study Visa Consultants in Ramanathapuram",
     "Gradubvate Ramanathapuram",
   ],
-
   alternates: {
     canonical: "https://www.gradubvate.com/address/ramanathapuram",
   },
