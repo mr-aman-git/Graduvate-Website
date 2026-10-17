@@ -71,7 +71,7 @@ export const studyDestinations: FlagItem[] = [
 export const prDestinations: FlagItem[] = [
     { name: "Canada", link: "/pr-global/canada", flag: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Canada_%28Pantone%29.svg" },
     { name: "Australia", link: "/pr-global/australia", flag: "https://img.magnific.com/premium-photo/flag-australia_406939-4447.jpg?semt=ais_test_b&w=740&q=80" },
-    { name: "Europe", link: "/", flag: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Flag_of_Europe.svg/960px-Flag_of_Europe.svg.png" },
+    { name: "Europe", link: "/pr-global/europe", flag: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Flag_of_Europe.svg/960px-Flag_of_Europe.svg.png" },
 ];
 
 export const visaDestinations: FlagItem[] = [
