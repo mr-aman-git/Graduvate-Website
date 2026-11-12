@@ -79,7 +79,6 @@ export default function EuropeLeadModal({
               required
               value={formData.name}
               onChange={handleChange}
-              
               className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:border-[#0B4FD8] focus:ring-2 focus:ring-blue-100 outline-none transition"
             />
           </div>
@@ -95,7 +94,6 @@ export default function EuropeLeadModal({
                 required
                 value={formData.phone}
                 onChange={handleChange}
-               
                 className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:border-[#0B4FD8] focus:ring-2 focus:ring-blue-100 outline-none transition"
               />
             </div>
@@ -110,7 +108,6 @@ export default function EuropeLeadModal({
                 required
                 value={formData.location}
                 onChange={handleChange}
-                
                 className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:border-[#0B4FD8] focus:ring-2 focus:ring-blue-100 outline-none transition"
               />
             </div>
@@ -126,7 +123,6 @@ export default function EuropeLeadModal({
               required
               value={formData.email}
               onChange={handleChange}
-              
               className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:border-[#0B4FD8] focus:ring-2 focus:ring-blue-100 outline-none transition"
             />
           </div>
@@ -140,8 +136,8 @@ export default function EuropeLeadModal({
           </button>
 
           <p className="text-center text-[11px] text-slate-400 mt-2">
-            Aapki details seedhe licensed counselor ko WhatsApp par send ho
-            jayengi.
+            Your details will be sent directly to a licensed counselor via
+            WhatsApp.
           </p>
         </form>
       </div>

@@ -5,15 +5,14 @@ import ReadinessChecker from "./_components/ReadinessChecker";
 import FeeCalculator from "./_components/FeeCalculator";
 import DocChecklist from "./_components/DocChecklist";
 import FaqAccordion from "./_components/FaqAccordion";
-import GoogleFormModal from "./_components/GoogleFormModal";
-
+import EuropeLeadModal from "./_components/EuropeLeadModal";
 export default function CanadaPRClient() {
-  const [formOpen, setFormOpen] = useState(false);
-  const [formPurpose, setFormPurpose] = useState("PR Assessment");
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalTitle, setModalTitle] = useState("Europe PR Consultation");
 
-  const openForm = (purpose = "General Inquiry") => {
-    setFormPurpose(purpose);
-    setFormOpen(true);
+  const handleOpenModal = (title = "Europe PR Evaluation") => {
+    setModalTitle(title);
+    setModalOpen(true);
   };
 
   return (
@@ -39,13 +38,13 @@ export default function CanadaPRClient() {
             {/* CTAs */}
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <button
-                onClick={() => openForm("Hero Assessment Button")}
+                onClick={() => handleOpenModal("Hero Assessment CTA")}
                 className="bg-[#E61C24] hover:bg-[#c9141b] text-white px-8 py-4 rounded-xl font-bold shadow-lg shadow-red-500/20 transition hover:-translate-y-0.5"
               >
                 Book Free PR Assessment →
               </button>
               <a
-                href="#readiness-check"
+                href="/eligibility-check/canada"
                 className="bg-[#0B4FD8] hover:bg-[#093db0] text-white px-7 py-4 rounded-xl font-bold shadow-lg shadow-blue-500/20 transition"
               >
                 Check PR Score
@@ -409,47 +408,11 @@ export default function CanadaPRClient() {
         <FaqAccordion />
       </section>
 
-      {/* 9. FINAL CTA FOOTER LEAD CAPTURE */}
-      {/* <section className="py-20 bg-linear-to-br from-slate-900 via-[#0B4FD8] to-slate-950 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl font-extrabold">
-            Your PR Plan Starts With One Honest Conversation
-          </h2>
-          <p className="mt-4 text-blue-100 max-w-2xl mx-auto text-sm sm:text-base">
-            30 minutes with a licensed RCIC gives you a definitive pathway,
-            predictable costs, and exact timelines. No sales pitch — just facts.
-          </p>
-
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <button
-              onClick={() => openForm("Final CTA Consultation")}
-              className="bg-[#E61C24] hover:bg-[#c9141b] text-white px-8 py-4 rounded-xl font-bold shadow-xl transition hover:scale-105"
-            >
-              Request Free Consultation →
-            </button>
-            <a
-              href="https://wa.me/918608608668?text=Hi%20Graduvate,%20I%20want%20to%20evaluate%20my%20Canada%20PR%20profile"
-              target="_blank"
-              rel="noreferrer"
-              className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-xl font-bold shadow-xl transition"
-            >
-              💬 WhatsApp Us
-            </a>
-          </div>
-
-          <div className="mt-12 pt-8 border-t border-white/10 text-xs text-slate-300 flex flex-wrap justify-center gap-6">
-            <span>🛡️ CICC Regulated</span>
-            <span>📍 Offices: Tamil Nadu, Delhi & Canada</span>
-            <span>✉️ graduvateabroad@gmail.com</span>
-          </div>
-        </div>
-      </section> */}
-
       {/* LEAD MODAL */}
-      <GoogleFormModal
-        isOpen={formOpen}
-        onClose={() => setFormOpen(false)}
-        defaultPurpose={formPurpose}
+      <EuropeLeadModal
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+        leadPurpose={modalTitle}
       />
     </main>
   );
